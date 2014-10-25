@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    
+    <!-- "/hibernate" é o nome da database -->
+    <property name="hibernate.connection.url">jdbc:mysql://localhost/hibernate</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    
+    <!-- Cria as tabelas, colunas ... e depois remove tudo-->
+    <property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+    <!-- Debug SQL -->
+    <property name="hibernate.show_sql">false</property>
+    
+<!--<property name="hibernate.current_session_context_class">thread</property>-->
+
+    <!-- O hibernate vai gerar comentários das queries-->
+    <property name="hibernate.use_sql_comments">true</property>
+    
+    <!-- O hibernate vai formatar as queries no log-->
+    <property name="hibernate.format_sql">true</property>
+    
+    <!-- Processamento em lote -->
+    <property name="hibernate.jdbc.batch_size">20</property>
+    
+    <!-- tamanho da arvore de busca -->
+    <property name="hibernate.jdbc.fetch_size">100</property>
+    
+    <!-- ==== Mapeamento dos objetos com o banco relacional ====== -->
+    <mapping class="hibernate.model.Pessoa"/>
+    <mapping class="hibernate.model.TipoPessoa"/>
+    <mapping class="hibernate.model.Conta"/>
+    <mapping class="hibernate.model.Banco"/>
+    <mapping class="hibernate.model.Movimentacao"/>
+    <!-- ======================================================== -->
+    
+  </session-factory>
+</hibernate-configuration>
